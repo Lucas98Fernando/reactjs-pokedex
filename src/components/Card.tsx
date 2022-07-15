@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -15,7 +14,6 @@ import ChipType from "./ChipType";
 export default function PokemonCard({ name, url }: PokemonResults) {
   const [pokemonSprite, setPokemonSprite] = useState();
   const [pokemonTypes, setPokemonTypes] = useState<PokemonTypes[]>([]);
-  const theme = useTheme();
 
   useEffect(() => {
     usePokemons.getPokemonImage(url).then((data) => {
