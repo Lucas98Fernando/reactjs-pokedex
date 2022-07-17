@@ -12,6 +12,14 @@ export default function getColor(type: string) {
       return "#4a4e69";
     case "bug":
       return "#231942";
+    case "electric":
+      return "#fdc500";
+    case "ground":
+      return "#76520e";
+    case "rock":
+      return "#414833";
+    case "psychic":
+      return "#ff5d8f";
     default:
       return "gray";
   }

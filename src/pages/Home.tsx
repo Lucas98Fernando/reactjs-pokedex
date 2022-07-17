@@ -1,18 +1,29 @@
 import { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
 import PokemonCard from "../components/Card";
 import Header from "../components/Header";
 import usePokemons from "../hooks/usePokemons";
-import { AllPokemons } from "../types/Pokemons";
-import Button from "@mui/material/Button";
+import { PokemonResults } from "../types/Pokemons";
+import BaseButton from "../components/Button";
 
 export default function Home() {
-  const [pokemons, setPokemons] = useState<AllPokemons>();
+  const [pokemons, setPokemons] = useState<PokemonResults[]>();
+  const [offset, setOffset] = useState(20);
+  const [limit, setLimit] = useState(20);
 
   useEffect(() => {
-    usePokemons.getAllPokemons().then((data) => setPokemons(data));
+    usePokemons.getAllPokemons().then((data) => setPokemons(data?.results));
   }, []);
+
+  const loadMore = () => {
+    setOffset((offset) => offset + 20);
+
+    usePokemons
+      .getAllPokemons(offset, limit)
+      .then((data) => setPokemons((poke) => [...poke, ...data?.results]));
+  };
 
   return (
     <>
@@ -20,13 +31,13 @@ export default function Home() {
       <Container>
         <Grid container spacing={2} rowGap={2} alignItems="stretch">
           {pokemons &&
-            pokemons.results.map((data) => (
+            pokemons.map((data) => (
               <PokemonCard key={data.url} name={data.name} url={data.url} />
             ))}
         </Grid>
-        <Button sx={{ margin: "2rem 0 1rem" }} variant="contained">
-          Carregar mais
-        </Button>
+        <Container sx={{ textAlign: "center", margin: "2rem 0 1rem" }}>
+          <BaseButton onClick={loadMore} label="Carregar mais" />
+        </Container>
       </Container>
     </>
   );
