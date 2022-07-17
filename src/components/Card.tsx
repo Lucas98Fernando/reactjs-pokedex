@@ -10,13 +10,21 @@ import { PokemonResults, PokemonTypes } from "../types/Pokemons";
 import usePokemons from "../hooks/usePokemons";
 import capitalizeFirstLetter from "../utils/formatters";
 import ChipType from "./ChipType";
+import DialogDetails from "./DialogDetails";
 
 export default function PokemonCard({ name, url }: PokemonResults) {
   const [pokemonSprite, setPokemonSprite] = useState();
   const [pokemonTypes, setPokemonTypes] = useState<PokemonTypes[]>([]);
+  const [pokemonData, setPokemonData] = useState();
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => setOpen(true);
+
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     usePokemons.getPokemonImage(url).then((data) => {
+      setPokemonData(data);
       setPokemonSprite(data.sprites.other.dream_world.front_default);
       setPokemonTypes(data.types);
     });
@@ -33,6 +41,7 @@ export default function PokemonCard({ name, url }: PokemonResults) {
           height: "100%",
           borderRadius: "10px",
         }}
+        onClick={handleClickOpen}
       >
         <Box>
           <CardContent sx={{ flex: "1 0 auto" }}>
@@ -56,6 +65,7 @@ export default function PokemonCard({ name, url }: PokemonResults) {
           />
         </Box>
       </Card>
+      <DialogDetails open={open} onClose={handleClose} data={name} />
     </Grid>
   );
 }

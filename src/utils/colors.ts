@@ -8,6 +8,10 @@ export default function getColor(type: string) {
       return "#00b4d8";
     case "poison":
       return "#3a0ca3";
+    case "normal":
+      return "#4a4e69";
+    case "bug":
+      return "#231942";
     default:
       return "gray";
   }

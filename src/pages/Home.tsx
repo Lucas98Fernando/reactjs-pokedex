@@ -5,6 +5,7 @@ import PokemonCard from "../components/Card";
 import Header from "../components/Header";
 import usePokemons from "../hooks/usePokemons";
 import { AllPokemons } from "../types/Pokemons";
+import Button from "@mui/material/Button";
 
 export default function Home() {
   const [pokemons, setPokemons] = useState<AllPokemons>();
@@ -16,13 +17,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Container fixed>
+      <Container>
         <Grid container spacing={2} rowGap={2} alignItems="stretch">
           {pokemons &&
             pokemons.results.map((data) => (
               <PokemonCard key={data.url} name={data.name} url={data.url} />
             ))}
         </Grid>
+        <Button sx={{ margin: "2rem 0 1rem" }} variant="contained">
+          Carregar mais
+        </Button>
       </Container>
     </>
   );
