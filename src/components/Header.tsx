@@ -1,10 +1,10 @@
 import logo from "/pokemon-logo.svg";
-import "../assets/Header.scss";
+import { BaseHeader, Logo } from "../styles/Header";
 
 export default function Header() {
   return (
-    <div id="header">
-      <img className="logo" src={logo} alt="Pokemon logo" />
-    </div>
+    <BaseHeader>
+      <Logo className="logo" src={logo} alt="Pokemon logo" />
+    </BaseHeader>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -6,29 +6,20 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
-import { PokemonResults, PokemonTypes } from "../types/Pokemons";
-import usePokemons from "../hooks/usePokemons";
+import { PokemonResults } from "../types/Pokemons";
 import capitalizeFirstLetter from "../utils/formatters";
 import ChipType from "./ChipType";
 import DialogDetails from "./DialogDetails";
+import usePokemonImage from "../hooks/usePokemonImage";
 
 export default function PokemonCard({ name, url }: PokemonResults) {
-  const [pokemonSprite, setPokemonSprite] = useState();
-  const [pokemonTypes, setPokemonTypes] = useState<PokemonTypes[]>([]);
-  const [pokemonData, setPokemonData] = useState();
   const [open, setOpen] = useState(false);
+
+  const { pokemonSprite, pokemonTypes } = usePokemonImage(url);
 
   const handleClickOpen = () => setOpen(true);
 
   const handleClose = () => setOpen(false);
-
-  useEffect(() => {
-    usePokemons.getPokemonImage(url).then((data) => {
-      setPokemonData(data);
-      setPokemonSprite(data.sprites.other.dream_world.front_default);
-      setPokemonTypes(data.types);
-    });
-  }, []);
 
   return (
     <Grid item xs={4}>

@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+import { createGlobalStyle } from "styled-components";
 
+export const GlobalStyles = createGlobalStyle`
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -17,3 +18,4 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100vh;
 }
+`;
