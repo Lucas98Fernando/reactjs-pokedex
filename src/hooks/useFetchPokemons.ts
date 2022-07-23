@@ -32,5 +32,15 @@ export default function useFetchPokemons() {
     );
   };
 
-  return { pokemons, loadMore };
+  const findByName = async (name: string) => {
+    try {
+      const { data } = await httpClient.get(name);
+      setPokemons(data);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { pokemons, loadMore, findByName };
 }

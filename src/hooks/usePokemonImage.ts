@@ -27,5 +27,5 @@ export default function usePokemonImage(url: string) {
     }
   };
 
-  return { pokemonSprite, pokemonTypes };
+  return { pokemonSprite, pokemonTypes, pokemonData };
 }

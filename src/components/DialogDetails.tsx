@@ -41,10 +41,11 @@ export default function DialogDetails({ open, onClose, data }: any) {
     <>
       <Dialog open={open} onClose={onClose}>
         <BootstrapDialogTitle id="customized-dialog-title" onClose={onClose}>
-          {data}
+          Detalhes do {data.name}
         </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>Infos</Typography>
+        <DialogContent>
+          <Typography gutterBottom>Altura: {data.height}</Typography>
+          <Typography gutterBottom>Peso: {data.weight}</Typography>
         </DialogContent>
       </Dialog>
     </>

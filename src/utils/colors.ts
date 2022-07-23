@@ -20,6 +20,10 @@ export default function getColor(type: string) {
       return "#414833";
     case "psychic":
       return "#ff5d8f";
+    case "ghost":
+      return "#333";
+    case "dark":
+      return "#000";
     default:
       return "gray";
   }

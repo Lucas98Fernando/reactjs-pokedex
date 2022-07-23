@@ -15,7 +15,7 @@ import usePokemonImage from "../hooks/usePokemonImage";
 export default function PokemonCard({ name, url }: PokemonResults) {
   const [open, setOpen] = useState(false);
 
-  const { pokemonSprite, pokemonTypes } = usePokemonImage(url);
+  const { pokemonSprite, pokemonTypes, pokemonData } = usePokemonImage(url);
 
   const handleClickOpen = () => setOpen(true);
 
@@ -31,6 +31,7 @@ export default function PokemonCard({ name, url }: PokemonResults) {
           padding: "0.5rem",
           height: "100%",
           borderRadius: "10px",
+          cursor: "pointer",
         }}
         onClick={handleClickOpen}
       >
@@ -56,7 +57,7 @@ export default function PokemonCard({ name, url }: PokemonResults) {
           />
         </Box>
       </Card>
-      <DialogDetails open={open} onClose={handleClose} data={name} />
+      <DialogDetails open={open} onClose={handleClose} data={pokemonData} />
     </Grid>
   );
 }

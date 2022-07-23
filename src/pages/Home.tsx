@@ -4,6 +4,7 @@ import PokemonCard from "../components/Card";
 import Header from "../components/Header";
 import BaseButton from "../components/Button";
 import useFetchPokemons from "../hooks/useFetchPokemons";
+import Search from "../components/Search";
 
 export default function Home() {
   const { pokemons, loadMore } = useFetchPokemons();
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Header />
       <Container>
+        <Search />
         <Grid container spacing={2} rowGap={2} alignItems="stretch">
           {pokemons &&
             pokemons.map((data, index) => (
