@@ -34,8 +34,8 @@ export default function useFetchPokemons() {
 
   const findByName = async (name: string) => {
     try {
-      const { data } = await httpClient.get(name);
-      setPokemons(data);
+      const { data, request }: AxiosResponse = await httpClient(name);
+      setPokemons([{ name: data.name, url: request.responseURL }]);
       return data;
     } catch (error) {
       console.log(error);

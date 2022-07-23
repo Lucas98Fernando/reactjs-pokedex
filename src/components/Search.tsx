@@ -1,15 +1,39 @@
-import { Box, TextField } from "@mui/material";
-import { styled } from "@mui/material/styles";
-
-const BaseInput = styled(TextField)(() => ({
-  margin: "1rem 0",
-  background: "#fff",
-}));
+import { useState } from "react";
+import { TextField, IconButton, Paper } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import useFetchPokemons from "../hooks/useFetchPokemons";
 
 export default function Search() {
+  const [pokemonName, setPokemonName] = useState("");
+  const { pokemons, findByName } = useFetchPokemons();
+
+  const handleSearch = () => {
+    if (pokemonName) findByName(pokemonName);
+    console.log(pokemons);
+  };
+
   return (
-    <Box sx={{ textAlign: "center" }}>
-      <BaseInput label="Pesquisar" variant="filled" />
-    </Box>
+    <Paper
+      component="form"
+      sx={{
+        p: "6px 14px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        width: 400,
+        margin: "1rem auto",
+        borderRadius: "10px",
+      }}
+    >
+      <TextField
+        onChange={(event) => setPokemonName(event.target.value)}
+        label="Pesquisar"
+        variant="filled"
+        multiline
+      />
+      <IconButton type="button" sx={{ p: "10px" }} onClick={handleSearch}>
+        <SearchIcon />
+      </IconButton>
+    </Paper>
   );
 }

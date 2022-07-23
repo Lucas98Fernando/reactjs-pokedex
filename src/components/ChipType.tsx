@@ -1,5 +1,4 @@
-import { Icon } from "@mui/material";
-import Chip from "@mui/material/Chip";
+import { Chip, Icon } from "@mui/material";
 import setColor from "../utils/colors";
 import setIcon from "../utils/icon";
 

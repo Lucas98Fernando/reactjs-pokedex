@@ -1,5 +1,4 @@
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
+import { Container, Grid } from "@mui/material";
 import PokemonCard from "../components/Card";
 import Header from "../components/Header";
 import BaseButton from "../components/Button";
@@ -16,8 +15,9 @@ export default function Home() {
         <Search />
         <Grid container spacing={2} rowGap={2} alignItems="stretch">
           {pokemons &&
+            pokemons.length > 0 &&
             pokemons.map((data, index) => (
-              <PokemonCard key={index} name={data.name} url={data.url} />
+              <PokemonCard key={index} {...data} />
             ))}
         </Grid>
         <Container sx={{ textAlign: "center", margin: "2rem 0 1rem" }}>

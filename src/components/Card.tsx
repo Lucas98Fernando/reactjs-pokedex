@@ -1,11 +1,13 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import {
+  Box,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Stack,
+} from "@mui/material";
 import { PokemonResults } from "../types/Pokemons";
 import capitalizeFirstLetter from "../utils/formatters";
 import ChipType from "./ChipType";
