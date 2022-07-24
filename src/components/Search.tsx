@@ -1,13 +1,12 @@
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { TextField, IconButton, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { usePokemons } from "../hooks/usePokemons";
 
-interface Props {
-  handleSearch: MouseEventHandler<HTMLElement>;
-  onPokemonName(value: string): void;
-}
+export default function Search() {
+  const [pokemonName, setPokemonName] = useState("");
+  const { getByName } = usePokemons();
 
-export default function Search({ handleSearch, onPokemonName }: Props) {
   return (
     <Paper
       component="form"
@@ -22,12 +21,16 @@ export default function Search({ handleSearch, onPokemonName }: Props) {
       }}
     >
       <TextField
-        onChange={(event) => onPokemonName(event.target.value)}
+        onChange={(event) => setPokemonName(event.target.value)}
         label="Pesquisar"
         variant="filled"
         multiline
       />
-      <IconButton type="button" sx={{ p: "10px" }} onClick={handleSearch}>
+      <IconButton
+        type="button"
+        sx={{ p: "10px" }}
+        onClick={() => getByName(pokemonName)}
+      >
         <SearchIcon />
       </IconButton>
     </Paper>
