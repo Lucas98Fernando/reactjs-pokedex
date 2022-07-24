@@ -12,12 +12,12 @@ import { PokemonResults } from "../types/Pokemons";
 import capitalizeFirstLetter from "../utils/formatters";
 import ChipType from "./ChipType";
 import DialogDetails from "./DialogDetails";
-import usePokemonImage from "../hooks/usePokemonImage";
+import usePokemonData from "../hooks/usePokemonData";
 
 export default function PokemonCard({ name, url }: PokemonResults) {
   const [open, setOpen] = useState(false);
 
-  const { pokemonSprite, pokemonTypes, pokemonData } = usePokemonImage(url);
+  const { pokemonSprite, pokemonTypes, pokemonData } = usePokemonData(url);
 
   const handleClickOpen = () => setOpen(true);
 
