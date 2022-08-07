@@ -2,7 +2,7 @@
 
 ### :computer: Developed with:
 
-- [ReactJS](https://v3.vuejs.org/)
+- [ReactJS](https://pt-br.reactjs.org/)
 - [Typescript](https://www.typescriptlang.org/)
 - [Material UI](https://mui.com/)
 
