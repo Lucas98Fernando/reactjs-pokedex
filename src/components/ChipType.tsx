@@ -1,6 +1,6 @@
 import { Chip, Icon } from "@mui/material";
-import setColor from "../utils/colors";
-import setIcon from "../utils/icon";
+import setColor from "@utils/colors";
+import setIcon from "@utils/icon";
 
 export default function ChipType({ type }: { type: string }) {
   return (

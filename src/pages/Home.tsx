@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import PokemonCard from "../components/Card";
-import Header from "../components/Header";
-import BaseButton from "../components/Button";
-import Search from "../components/Search";
+import PokemonCard from "@components/Card";
+import Header from "@components/Header";
+import BaseButton from "@components/Button";
+import Search from "@components/Search";
 import { useEffect } from "react";
-import { usePokemons } from "../hooks/usePokemons";
+import { usePokemons } from "@hooks/usePokemons";
 
 export default function Home() {
   const { pokemons, showLoadMore, getPokemons, loadMore } = usePokemons();

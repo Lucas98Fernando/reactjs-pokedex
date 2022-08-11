@@ -1,5 +1,5 @@
 import logo from "/pokemon-logo.svg";
-import { BaseHeader, Logo } from "../styles/Header";
+import { BaseHeader, Logo } from "@styles/Header";
 
 export default function Header() {
   return (

@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { createContext, PropsWithChildren, useState } from "react";
-import httpClient from "../http/axios";
-import { AllPokemons, PokemonResults } from "../types/Pokemons";
+import { httpClient } from "@http/axios";
+import { AllPokemons, PokemonResults } from "@/types/Pokemons";
 
 type PokemonsContextType = {
   pokemons: PokemonResults[];

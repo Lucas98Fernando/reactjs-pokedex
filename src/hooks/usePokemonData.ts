@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
-import httpClient from "../http/axios";
-import { PokemonTypes } from "../types/Pokemons";
+import { httpClient } from "@http/axios";
+import { PokemonTypes } from "@/types/Pokemons";
 
 export default function usePokemonImage(url: string) {
   const [pokemonSprite, setPokemonSprite] = useState("");

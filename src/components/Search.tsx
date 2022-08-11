@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, IconButton, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { usePokemons } from "../hooks/usePokemons";
+import { usePokemons } from "@hooks/usePokemons";
 
 export default function Search() {
   const [pokemonName, setPokemonName] = useState("");

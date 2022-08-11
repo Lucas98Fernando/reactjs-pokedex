@@ -8,11 +8,11 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-import { PokemonResults } from "../types/Pokemons";
-import capitalizeFirstLetter from "../utils/formatters";
-import ChipType from "./ChipType";
-import DialogDetails from "./DialogDetails";
-import usePokemonData from "../hooks/usePokemonData";
+import { PokemonResults } from "@/types";
+import capitalizeFirstLetter from "@utils/formatters";
+import ChipType from "@components/ChipType";
+import DialogDetails from "@components/DialogDetails";
+import usePokemonData from "@hooks/usePokemonData";
 
 export default function PokemonCard({ name, url }: PokemonResults) {
   const [open, setOpen] = useState(false);
